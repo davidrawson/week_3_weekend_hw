@@ -6,7 +6,7 @@ class Customer
   attr_accessor :name , :funds
 
   def initialize (options)
-    @id = options['id'].to_i
+    @id = options['id'].to_i if options['id']
     @name = options['name']
     @funds = options['funds']
   end
@@ -45,7 +45,6 @@ class Customer
     result = film_hashes.map{|film_hash| Film.new(film_hash)}
     return result
   end
-
 
   def self.all
     sql = "SELECT * FROM customers"
